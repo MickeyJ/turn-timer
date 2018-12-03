@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-INDEX=$(cat ./count.txt)
-echo "post ${INDEX}"
+CWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
-PEOPLE=('abby' 'miki' 'sabir', 'marah')
+COUNT_FILE="${CWD}/count.txt"
+INDEX=$(cat ${COUNT_FILE})
+PEOPLE=('abby' 'miki' 'sabir' 'marah')
 
+echo "end ${PEOPLE[INDEX]}s turn"
 say -v Carlos "${PEOPLE[INDEX]} [[slnc 500]] taim tu passit"
 
 if [[ ${INDEX} -eq $(( ${#PEOPLE[@]} - 1)) ]]; then
@@ -13,4 +15,4 @@ else
 	INDEX=$(( $INDEX + 1 ))
 fi
 
-echo ${INDEX} > ./count.txt
+echo ${INDEX} > ${COUNT_FILE}
