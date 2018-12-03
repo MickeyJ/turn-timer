@@ -6,9 +6,10 @@ COUNT_FILE="${CWD}/count.txt"
 INDEX=$(cat ${COUNT_FILE})
 PEOPLE=('abby' 'miki' 'sabir' 'marah')
 PEOPLE_COUNT=${#PEOPLE[@]}
+CURRENT_PERSON=${PEOPLE[INDEX]}
 
-echo "end ${PEOPLE[INDEX]}s turn"
-say -v Carlos "${PEOPLE[INDEX]} [[slnc 500]] taim tu passit"
+echo "end ${CURRENT_PERSON}s turn"
+say -v Carlos "${CURRENT_PERSON} [[slnc 500]] taim tu passit"
 
 if [[ ${INDEX} -eq $(( ${PEOPLE_COUNT} - 1)) ]]; then
 	INDEX=0
